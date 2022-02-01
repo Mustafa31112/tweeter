@@ -20,7 +20,11 @@ body {
   font-size: 24px;
   
 }
-
+.container {
+  width: 90%;
+  margin: auto;
+  color: #545149;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
