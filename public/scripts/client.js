@@ -44,13 +44,13 @@ const renderTweets = function (tweets) {
 
 const onSubmit = function (event) {
   event.preventDefault();
-  const length = $(`#tweet-text`).val().length;
-  console.log(length);
-  if (length === 0) {
-    return alert("can not be zero");
+  const tweet = $(`#tweet-text`).val();
+ 
+  if (tweet === "" || null) {
+    return alert("can not be empty");
   }
 
-  if (length > 140) {
+  if (tweet.length > 140) {
     return alert("tweet is long");
   }
 
