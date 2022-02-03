@@ -28,21 +28,12 @@ const data = [
   },
 ];
 
-
-
 $(document).ready(function () {
- 
-  $("#submitform").on("submit", onSubmit)
-  
-  
-  
-  
-  
-  renderTweets(data);
+  $("#submitform").on("submit", onSubmit);
+
+  // renderTweets(data);
+  loadTweets();
 });
-
-
-
 
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
@@ -52,26 +43,25 @@ const renderTweets = function (tweets) {
 };
 
 const onSubmit = function (event) {
-  console.log("helo")
   event.preventDefault();
-  const length = $(`#tweet-text`).val().length
-  console.log(length)
+  const length = $(`#tweet-text`).val().length;
+  console.log(length);
   if (length === 0) {
-    return alert("can not be zero")
+    return alert("can not be zero");
   }
 
   if (length > 140) {
-    return alert("tweet is long")
+    return alert("tweet is long");
   }
-  
+
   //grab input values from the form and save to variables
   //validations(maybe)
   //if data is valid send ajax request with serialized input values
   $.ajax({
     method: "POST",
     url: "/tweets",
-    data: $(this).serialize()
-  })
+    data: $(this).serialize(),
+  });
 };
 
 const createTweetElement = function (tweet) {
@@ -105,5 +95,12 @@ const createTweetElement = function (tweet) {
   return $tweet;
 };
 
-
-
+const loadTweets = function () {
+  $.ajax({
+    method: "GET",
+    url: "/tweets",
+  }).then(function (tweets) {
+    renderTweets(tweets);
+  });
+  
+};
