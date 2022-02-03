@@ -39,6 +39,7 @@ form textarea {
 
  .error {
    color:red;
+   border: 3px solid red;
    border-style: red;
    display: none;
  }

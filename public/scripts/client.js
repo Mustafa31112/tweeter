@@ -29,9 +29,37 @@ const data = [
 ];
 
 $(document).ready(function () {
+  const onSubmit = function (event) {
+    event.preventDefault();
+    const tweet = $(`#tweet-text`).val();
+  
+    if (tweet === "" || null) {
+      error("can not be empty");
+      return
+    }
+  
+    if (tweet.length > 140) {
+      error("too long");
+      return
+    }
+  
+    //grab input values from the form and save to variables
+    //validations(maybe)
+    //if data is valid send ajax request with serialized input values
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $(this).serialize(),
+    });
+    $("#error").hide();
+    loadTweets();
+    this.reset();
+  };
+
   $("#submitform").on("submit", onSubmit);
 
   // renderTweets(data);
+  $("#error").hide();
   loadTweets();
 });
 
@@ -42,28 +70,12 @@ const renderTweets = function (tweets) {
   }
 };
 
-const onSubmit = function (event) {
-  event.preventDefault();
-  const tweet = $(`#tweet-text`).val();
-
-  if (tweet === "" || null) {
-    return alert("can not be empty");
-  }
-
-  if (tweet.length > 140) {
-    return alert("tweet is long");
-  }
-
-  //grab input values from the form and save to variables
-  //validations(maybe)
-  //if data is valid send ajax request with serialized input values
-  $.ajax({
-    method: "POST",
-    url: "/tweets",
-    data: $(this).serialize(),
-  });
-  loadTweets();
+const error = function (message) {
+  $("#error").text(message);
+  $("#error").slideDown("slow");
 };
+
+
 
 const createTweetElement = function (tweet) {
   let $tweet = `<article class="head">
