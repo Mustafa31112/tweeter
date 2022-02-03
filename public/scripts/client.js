@@ -38,14 +38,14 @@ $(document).ready(function () {
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
     const element = createTweetElement(tweet);
-    $("#tweets-container").append(element);
+    $("#tweets-container").prepend(element);
   }
 };
 
 const onSubmit = function (event) {
   event.preventDefault();
   const tweet = $(`#tweet-text`).val();
- 
+
   if (tweet === "" || null) {
     return alert("can not be empty");
   }
@@ -62,6 +62,7 @@ const onSubmit = function (event) {
     url: "/tweets",
     data: $(this).serialize(),
   });
+  loadTweets();
 };
 
 const createTweetElement = function (tweet) {
@@ -79,7 +80,8 @@ const createTweetElement = function (tweet) {
     </div>
   </header>
   <div class="message">
-    <p> ${tweet.content.text}</p>
+     ${$("<p>").text(tweet.content.text).html()}
+     <!-- <p>${tweet.content.text}</p> -->
   </div>
   <footer class="tweet-footer">
     <div>
@@ -102,5 +104,4 @@ const loadTweets = function () {
   }).then(function (tweets) {
     renderTweets(tweets);
   });
-  
 };
