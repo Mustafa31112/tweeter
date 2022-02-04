@@ -32,17 +32,17 @@ $(document).ready(function () {
   const onSubmit = function (event) {
     event.preventDefault();
     const tweet = $(`#tweet-text`).val();
-  
+
     if (tweet === "" || null) {
       error("can not be empty");
-      return
+      return;
     }
-  
+
     if (tweet.length > 140) {
       error("too long");
-      return
+      return;
     }
-  
+
     //grab input values from the form and save to variables
     //validations(maybe)
     //if data is valid send ajax request with serialized input values
@@ -50,12 +50,10 @@ $(document).ready(function () {
       method: "POST",
       url: "/tweets",
       data: $(this).serialize(),
-      success: function(){
+      success: function () {
         $("#error").hide();
         loadTweets();
-        
-
-      }
+      },
     });
     this.reset();
   };
@@ -68,7 +66,7 @@ $(document).ready(function () {
 });
 
 const renderTweets = function (tweets) {
-  $("#tweet-container").empty()
+  $("#tweet-container").empty();
   for (let tweet of tweets) {
     const element = createTweetElement(tweet);
     $("#tweets-container").prepend(element);
@@ -79,8 +77,6 @@ const error = function (message) {
   $("#error").text(message);
   $("#error").slideDown("slow");
 };
-
-
 
 const createTweetElement = function (tweet) {
   let $tweet = `<article class="head">

@@ -9,12 +9,11 @@
   padding: 0 2px;
   background-image: url("../images/asfalt-dark.png");
   margin-bottom: 30px;
-
 }
 .profile-image {
   display: flex;
-  justify-content: center; 
-   padding-top: 20px;
+  justify-content: center;
+  padding-top: 20px;
 }
 .name {
   display: flex;

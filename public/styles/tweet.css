@@ -1,6 +1,6 @@
 .tweet-container {
   display: flex;
-  
+
   flex-direction: column;
 }
 
@@ -9,12 +9,9 @@
   margin-top: 30px;
 }
 
-.head:hover{
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-
+.head:hover {
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
-
-
 
 .tweet-header {
   display: flex;
@@ -23,47 +20,41 @@
 }
 
 .tweet-header img {
- width: 110%;
- height: 100%;
- margin-right: 10px;
+  width: 110%;
+  height: 100%;
+  margin-right: 10px;
 }
 
 .image-name {
   display: flex;
-  
 }
 
-
-.message{
+.message {
   width: 80%;
   margin: 0 5%;
 }
 
-
-.tweet-footer{
+.tweet-footer {
   display: flex;
- justify-content: space-between;
- margin: 0 3%;
- border-top: 5px solid;
+  justify-content: space-between;
+  margin: 0 3%;
+  border-top: 5px solid;
 }
 
-.icons{
+.icons {
   display: flex;
- justify-content: space-between;
+  justify-content: space-between;
 }
 
 .icons p:hover {
   color: orange;
 }
 
-
 .fas {
   margin-right: 8px;
 }
- 
-.tag{
+
+.tag {
   color: #a7ceff;
-    font-weight: bold;
+  font-weight: bold;
 }
-
-
