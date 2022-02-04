@@ -12,6 +12,13 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+
+## Final Product
+
+!["tablet mode ss"](https://github.com/Mustafa31112/tweeter/blob/e3646863c219c210abc1cbe20d4a4942eede7237/docs/tablet-mode%20ss.png)
+
+!["desktop mode ss"](https://github.com/Mustafa31112/tweeter/blob/e3646863c219c210abc1cbe20d4a4942eede7237/docs/desktop-mode%20ss.png)
+
 ## Dependencies
 
 - Express
