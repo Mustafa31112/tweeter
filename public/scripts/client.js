@@ -50,9 +50,13 @@ $(document).ready(function () {
       method: "POST",
       url: "/tweets",
       data: $(this).serialize(),
+      success: function(){
+        $("#error").hide();
+        loadTweets();
+        
+
+      }
     });
-    $("#error").hide();
-    loadTweets();
     this.reset();
   };
 
@@ -64,6 +68,7 @@ $(document).ready(function () {
 });
 
 const renderTweets = function (tweets) {
+  $("#tweet-container").empty()
   for (let tweet of tweets) {
     const element = createTweetElement(tweet);
     $("#tweets-container").prepend(element);

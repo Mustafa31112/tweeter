@@ -24,7 +24,45 @@ body {
 .container {
   width: 90%;
   margin: auto;
-  color: #545149;
+  color: #545149; 
+  padding: 0 5%;
+}
+.layout-container{
+  
+  margin-top: 120px;
+}
+
+nav {
+  background-color: orange  !important;
+}
+
+/* tablet style */
+@media only screen and (min-width:768px) and (max-width:1024px) {
+  .layout-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20% 2.5%; 
+}
+nav {
+  background-color: #4056A1 !important;
+}
+
+}
+
+/* desktop style */
+@media only screen and (min-width:1024px) {
+  .layout-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20% 2.5%; 
+  }
+  nav {
+    background-color: #4056A1 !important;
+  }
 }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
